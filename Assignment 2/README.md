@@ -1,54 +1,47 @@
-Todo App
-A simple, intuitive Todo App built with React and SCSS. This app allows you to add, edit, and remove tasks to stay organized and boost productivity.
+# Todo App
 
-Live Demo
-Check out the live version of the Todo App here:
+Welcome to a simple, intuitive Todo App built with React and SCSS. This app allows you to add, edit, and remove tasks to stay organized and boost productivity.
+
 [Live Demo](https://mytodoapp.vercel.app)
 
-Features
-Add Tasks: Easily add new tasks with a simple form.
-Edit Tasks: Update task details with the built-in edit functionality.
-Delete Tasks: Remove completed or unwanted tasks with a single click.
-Technologies Used
-Frontend: React.js
-Styling: SCSS
-State Management: React Hooks (useState, useRef)
-Installation
-To get a local copy up and running, follow these simple steps.
+## Table of Contents
 
-Prerequisites
-Make sure you have Node.js and npm installed on your machine.
+- [Getting Started](#getting-started)
+- [Features](#features)
+- [Folder Structure](#folder-structure)
+- [Technologies](#technologies)
+- [Installation](#installation)
+- [Usage](#usage)
 
-Installation Steps
-Clone the repository:
+## Getting Started
 
-bash
-Copy code
-git clone https://github.com/ArsalanPervez/React.git
-Navigate to the project directory:
+To get started with the Teksyo MVP Boilerplate, follow these steps:
 
-bash
-Copy code
-cd Assignment 2
-Install dependencies:
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/ArsalanPervez/React.git
+    ```
 
-bash
-Copy code
-npm install
-Start the development server:
+2. **Navigate to the project directory**:
+    ```bash
+    cd Assignment 2
+    ```
 
-bash
-Copy code
-npm run dev
-The app should now be running at http://localhost:5173.
+3. **Install dependencies**:
+    ```bash
+    npm install
+    ```
 
-Usage
-Enter a task in the input field and click the plus icon to add it to the list.
-Click the edit icon (pencil) next to a task to modify it.
-Click the delete icon (trash) next to a task to remove it from the list.
-Folder Structure
-arduino
-Copy code
+## Features
+
+- **Add Task**: You can add your daily based task.
+- **Edit Task**: You can modify your exsisting task.
+- **Delete Task**: You can remove your exsisting task.
+
+## Folder Structure
+
+```plaintext
+Assignment 2/
 ├── public
 │   ├── index.html
 ├── src
@@ -57,4 +50,46 @@ Copy code
 │   ├── index.css
 ├── README.md
 ├── package.json
-└── tailwind.config.js
+```
+
+
+## Technologies
+
+- **Frontend**: React, SCSS
+
+## Installation
+
+To set up the project locally, run the following commands:
+
+```bash
+git clone https://github.com/ArsalanPervez/React.git
+cd Assignment 2
+npm install
+```
+
+## Usage
+
+After installing the dependencies, you can start the development server with:
+
+```bash
+npm run dev
+```
+
+This will run the app in development mode. Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
+
+To build the project for production, run:
+
+```bash
+npm run build
+```
+
+
+Thank you for using the Todo App! If you have any questions or need further assistance, feel free to reach out.
+
+
+
+Happy coding!
+
+---
+
+*Note: Replace any placeholder URLs or contact information with actual links and details relevant to your project.*
