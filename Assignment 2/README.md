@@ -2,7 +2,7 @@
 
 Welcome to a simple, intuitive Todo App built with React and SCSS. This app allows you to add, edit, and remove tasks to stay organized and boost productivity.
 
-[Live Demo](https://mytodoapp.vercel.app)
+[Live Demo](https://todo-react-app-liart.vercel.app/)
 
 ## Table of Contents
 
