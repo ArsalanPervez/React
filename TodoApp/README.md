@@ -24,7 +24,7 @@ To get started with the Teksyo MVP Boilerplate, follow these steps:
 
 2. **Navigate to the project directory**:
     ```bash
-    cd Assignment 2
+    cd TodoApp
     ```
 
 3. **Install dependencies**:
@@ -41,7 +41,7 @@ To get started with the Teksyo MVP Boilerplate, follow these steps:
 ## Folder Structure
 
 ```plaintext
-Assignment 2/
+TodoApp/
 ├── public
 │   ├── index.html
 ├── src
@@ -63,7 +63,7 @@ To set up the project locally, run the following commands:
 
 ```bash
 git clone https://github.com/ArsalanPervez/React.git
-cd Assignment 2
+cd TodoApp
 npm install
 ```
 
