@@ -5,7 +5,8 @@ const QuizCard = ({ sendQuizData }) => {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [selectedOption, setSelectedOption] = useState('');
     const [updatedQuizData, setUpdatedQuizData] = useState([]);
-    const [quizScore, setquizScore] = useState(0)
+    const [quizScore, setquizScore] = useState(0);
+    const [result, setResult] = useState(false);
 
     useEffect(() => {
         if (sendQuizData.length > 0) {
@@ -30,19 +31,19 @@ const QuizCard = ({ sendQuizData }) => {
         if (currentQuestionIndex < updatedQuizData.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
             if(selectedOption == currentQuestion.correctAnswer){
-                setquizScore(quizScore + 1);
+                setquizScore(quizScore + 10);
             }
             setSelectedOption('');
         } else {
-            alert("You've completed the quiz!");
+            setResult(true);
         }
     };
 
     return (
         <main>
-            <div className="game-quiz-container">
+            {!result ? <div className="game-quiz-container">
                 <div className="game-details-container">
-                    <h1>Score: <span id="player-score"></span> {quizScore} / 10</h1>
+                    <h1>Score: <span id="player-score"></span> {quizScore} / 100</h1>
                     <h1>Question: <span id="question-number"></span> {currentQuestionIndex + 1} / 10</h1>
                 </div>
 
@@ -75,6 +76,13 @@ const QuizCard = ({ sendQuizData }) => {
                     <button onClick={handleNextQuestion} disabled={!selectedOption}>Next Question</button>
                 </div>
             </div>
+            : <div className="game-quiz-container">
+                    <div className="game-question-container">
+                        <h1 id="display-question">{((quizScore/100)*100) > 50 ? "You have passed the quiz exam" : "You have failed quiz exam" }</h1>
+                        <h1 id="display-question">Total Score: {quizScore}</h1>
+                    </div>
+                </div>}
+            
         </main>
     );
 };

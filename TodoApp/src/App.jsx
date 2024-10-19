@@ -8,7 +8,6 @@ function App() {
   const insertTask = (e) => {
     e.preventDefault();
     const taskValue = inputUser.current.value;
-
     if (taskValue.trim() == "") return; 
 
     let obj = {
