@@ -1,4 +1,3 @@
-// Header.js
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate   } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
@@ -24,7 +23,7 @@ function Header({userData}) {
                     Personal Blogging App
                 </Link>
                 <nav>
-                    <Link to={'/profile'} className='text-xs text-[#FFFFFF] mr-4 font-normal'>{ userData?.email}</Link>
+                    { userData?.email ? <Link to={'/profile'} className='text-xs text-[#FFFFFF] mr-4 font-normal underline'>Profile: { userData?.email}</Link> : ''}
                     {userData != null ?
                         <button 
                             onClick={handleLogout}

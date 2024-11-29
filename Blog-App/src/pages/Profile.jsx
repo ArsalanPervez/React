@@ -1,9 +1,8 @@
 // Body.js
 import avatar from '../assets/avatar.png';
 import React, { useEffect, useState, useRef } from 'react';
-import { Link, useLocation, useNavigate   } from 'react-router-dom';
-import { signOut, updatePassword  } from 'firebase/auth';
-import { getDocs, doc, query, collection, where, updateDoc } from "firebase/firestore";
+import { updatePassword  } from 'firebase/auth';
+import { getDocs, query, collection, where, updateDoc } from "firebase/firestore";
 import { auth, db } from '../config/firebaseconfig';
 import Swal from 'sweetalert2';
 
@@ -49,7 +48,6 @@ function Profile() {
   };
 }
 
-  // Update password
   const updatePasswordInFirestore = async () => {
     const user = auth.currentUser;
     if (oldPassword.current.value && newPassword.current.value && user) {
@@ -58,7 +56,6 @@ function Profile() {
     }
   };
 
-  // Handle form submission
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     if((firstName.current.value == null || firstName.current.value == "") || (lastName.current.value == null || lastName.current.value == "") || 

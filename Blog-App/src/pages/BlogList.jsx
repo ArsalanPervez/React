@@ -1,10 +1,8 @@
 // Body.js
 import React, { useEffect, useState } from 'react';
-import { Link, useParams  } from 'react-router-dom';
-import { collection, addDoc, getDocs, query, where, deleteDoc, setDoc, doc, updateDoc } from "firebase/firestore";
+import { Link } from 'react-router-dom';
+import { collection, getDocs } from "firebase/firestore";
 import { auth, db } from '../config/firebaseconfig';
-import person from '../assets/person.png';
-import Elon from '../assets/elon.png';
 
 function Allblog() {
     const [blogs, setBlogs] = useState(null);
@@ -16,8 +14,7 @@ function Allblog() {
                 id: doc.id,
                 ...doc.data(),
               }));
-            //   console.log(blogs)
-              setBlogs(blogs)
+            setBlogs(blogs)
             setLoading(false);
           } catch (error) {
             console.error("Error fetching blogs:", error);
@@ -38,7 +35,16 @@ function Allblog() {
             <section className="bg-gray-100 px-[10px]">
                 <div className="w-full max-w-custom mx-auto py-7 bg-gray-100">
 
-                    <h1 className="font-inter text-2xl font-semibold leading-[33.89px] text-left py-10">All Blogs</h1>
+                    <div className='py-10 flex items-center gap-2.5'>
+                        <h1 className="font-inter text-2xl font-semibold leading-[33.89px] text-left">All Blogs</h1>
+                        {
+                            auth?.currentUser?.email ? 
+                            <span>
+                            - <Link to={'/dashboard'} className='underline hover:text-indigo-500'>Dashboard</Link>
+                            </span>
+                            : ''
+                        }
+                    </div>
                     <div>
                         {
                             loading 
@@ -70,7 +76,6 @@ function Allblog() {
                                                 </Link>
 
                                         }
-                                        {/* <a href="#" className="text-[#7749F8] font-inter btn-cust text-sm leading-7 hover:underline">see all from this user</a> */}
                                     </div>
                                 </div>
                             ))

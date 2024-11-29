@@ -1,16 +1,13 @@
 // Body.js
 import React, { useEffect, useState } from 'react';
-import person from '../assets/person.png';
-import Elon from '../assets/elon.png';
-import Elon2 from '../assets/elon2.png';
 import { Link, useParams  } from 'react-router-dom';
-import { getDoc,getDocs, doc, query, collection, where } from "firebase/firestore";
+import { getDocs, query, collection, where } from "firebase/firestore";
 import { auth, db } from '../config/firebaseconfig';
 
 function Singleblog() {
     const [blogData, setBlogData] = useState([]);
     const [userData, setUserData] = useState(null); 
-    const { id: blogId } = useParams(); // Destructure id from useParams
+    const { id: blogId } = useParams();
 
     const getUserInfo = async (userId) => {
         const q = query(collection(db, "users"), where("uid", "==", userId));
@@ -31,7 +28,6 @@ function Singleblog() {
 
     const getSingleBlog = async () => {
         try {
-            // console.log(blogId)
             const q = query(collection(db, "blogs"), where("uid", "==", auth.currentUser.uid));
             const querySnapshot = await getDocs(q);
             const blogsData = querySnapshot.docs.map(doc => ({
@@ -39,7 +35,6 @@ function Singleblog() {
                 ...doc.data(),
             }));
             setBlogData(blogsData);
-            // console.log(blogsData)
         } catch (error) {
             console.error("Error fetching blog:", error);
         }
@@ -51,8 +46,6 @@ function Singleblog() {
                 <div className="w-full max-w-custom px-[10px] mx-auto py-8 font-bold text-4xl font-inter leading-[48.41px] tracking-tight text-left">
                     <Link to={'/'} className="text-gray-800 hover:text-[#7749F8]">
                         &lt; Back to all blogs
-
-                        {/* Back to all blogs */}
                     </Link>
                 </div>
             </div>
@@ -63,10 +56,10 @@ function Singleblog() {
                     {(userData && userData.length > 0) ? <h1 className="font-inter text-2xl font-semibold leading-[33.89px] text-left py-10">All from {userData[0]?.firstName} {userData[0]?.lastName}</h1> : <h1></h1>}
                     
                     <div className='flex lg:flex-nowrap flex-wrap justify-between gap-10'>
-                    <div className='w-[80%] flex lg:flex-nowrap flex-wrap gap-5 justify-between'>
+                    <div className='w-[80%] flex flex-col lg:flex-nowrap flex-wrap gap-5 justify-between'>
                         {
                             blogData.map((blog, index) => (
-                                <div key={index} className="w-[50%] p-6 bg-white border border-gray-300 rounded-lg font-sans">
+                                <div key={index} className="w-full p-6 bg-white border border-gray-300 rounded-lg font-sans">
                                     <div className="flex items-center gap-4">
                                         <img src={blog?.author_image} alt="Profile" className="size-20" />
                                         <div>

@@ -1,8 +1,8 @@
 // Body.js
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { auth, db } from '../config/firebaseconfig';
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { collection, addDoc, getDocs, query, where, deleteDoc, setDoc, doc, updateDoc } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 
@@ -20,10 +20,9 @@ function Login() {
       const userQuery = query(userCollection, where("uid", "==", auth.currentUser.uid));
       const userSnapshot = await getDocs(userQuery);
       if (!userSnapshot.empty) {
-        const userData = userSnapshot.docs[0].data(); // Get the first matching document's data
+        const userData = userSnapshot.docs[0].data();
         setFirstName(userData?.firstName);
         setLastName(userData?.lastName);
-        // console.log("User Data:", userData);
         return userData;
       } else {
         console.log("User not found");

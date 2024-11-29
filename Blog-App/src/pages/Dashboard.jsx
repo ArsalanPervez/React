@@ -1,7 +1,7 @@
 // Body.js
 import React, { useRef, useState, useEffect } from 'react';
 import { auth, db } from '../config/firebaseconfig';
-import { collection, addDoc, getDocs, query, where, deleteDoc, setDoc, doc, updateDoc, orderBy } from "firebase/firestore";
+import { collection, addDoc, getDocs, query, where, deleteDoc, doc, updateDoc } from "firebase/firestore";
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
@@ -96,7 +96,6 @@ function Dashboard() {
         }));
         const sortedBlogs = blogsData.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         setBlogs(sortedBlogs);
-        // console.log(sortedBlogs)
         setLoading(false);
       } catch (error) {
         console.error("Error fetching blogs:", error);
@@ -147,7 +146,6 @@ function Dashboard() {
     };
     const handleDeleteBlog = async (blogId) => {
       try {
-        // console.log('----> blogID',blogId)
         const blogRef = doc(db, "blogs", blogId)
         Swal.fire({
           title: "Delete Blog!",
@@ -162,9 +160,6 @@ function Dashboard() {
               await deleteDoc(blogRef);
               fetchBlogs();
               Swal.fire("Deleted!", "Your blog has been deleted.", "success");
-          } else if (result.dismiss === Swal.DismissReason.cancel) {
-            
-              // Swal.fire("Cancelled", "Your blog is safe :)", "error");
           }
         }).catch((err)=> {
           console.log(err)

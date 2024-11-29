@@ -10,7 +10,6 @@ const ProtectedRoutes = ({ guestComponent, authComponent }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
-            // console.log("onAuthStateChanged ======> ", user)
             if (user) {
                 setIsAuthenticated(true);
             } else {
@@ -22,16 +21,13 @@ const ProtectedRoutes = ({ guestComponent, authComponent }) => {
             }
         });
 
-        // Cleanup the listener
         return () => unsubscribe();
     }, [navigate, location]);
 
-    // While authentication state is being determined, show a loading indicator
     if (isAuthenticated === null) {
         return <div>Loading...</div>;
     }
 
-    // Show the appropriate component based on authentication status
     return isAuthenticated ? authComponent : guestComponent;
 };
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from './config/firebaseconfig'; // Assuming you have this configured
+import { auth } from './config/firebaseconfig';
 import Header from './components/Header';
 import { Outlet } from 'react-router-dom';
 

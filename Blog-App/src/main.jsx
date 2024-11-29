@@ -19,14 +19,14 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <BlogList /> // Default homepage for guests
+        element: <BlogList />
       },
       {
         path: '/dashboard',
         element: (
           <ProtectedRoutes
             authComponent={<Dashboard />}
-            guestComponent={<BlogList />} // Redirect to homepage for guests
+            guestComponent={<BlogList />}
           />
         )
       },
@@ -56,7 +56,4 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <RouterProvider router={router} />
-  // <StrictMode>
-  //   <App />
-  // </StrictMode>,
 )

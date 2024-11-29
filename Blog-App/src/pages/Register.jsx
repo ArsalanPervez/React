@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { auth, db, storage } from '../config/firebaseconfig'; // Make sure this import is correct
+import { auth, db, storage } from '../config/firebaseconfig';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { collection, setDoc, doc, updateDoc } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
@@ -24,9 +24,7 @@ const Register = () => {
           uploadTask.on(
               'state_changed',
               (snapshot) => {
-                  const progress =
-                      (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                      // console.log(`Upload is ${progress}% done`);
+                  const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
               },
               (error) => {
                   reject(error);
@@ -94,7 +92,7 @@ const Register = () => {
               text: 'You have been registered successfully.',
               icon: 'success',
           }).then(() => {
-              navigate('/login'); // Redirect to login page
+              navigate('/login');
           });
       } catch (error) {
           console.error('Error during registration:', error);
