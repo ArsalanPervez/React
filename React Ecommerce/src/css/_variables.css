@@ -1,0 +1,24 @@
+:root {
+    --primary: #B88E2F;
+    --secondary: #F9F1E7;
+    --custom-cream: #FAF3EA;
+    --text-color: #333333;
+    --paragraph-color: #898989;
+    --regular-text-color: #aaa;
+    --body-background: #111;
+    --border-color: #777;
+    --footer-xt:#9F9F9F;
+    --pagination-color:#F9F1E7;
+    --page-active:#B88E2F;
+    --not-active: #F9F1E7;
+    --features: #FAF3EA;
+    --quality: #898989;
+}
+:root.light-theme {
+    --primary: #313c0e;
+    --secondary: #fff;
+    --text-color: #333;
+    --regular-text-color: #555;
+    --body-background: #f9f9f9;
+    --border-color: #777;
+}
