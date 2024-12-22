@@ -14,6 +14,10 @@ app.use(express.json());
 //routes
 app.use('/api/v1' , todoRoutes)
 
+app.get('/', (req , res)=> {
+  res.send("<h1>Hello World</h1>")
+})
+
 
 connectDB()
   .then(() => {
