@@ -1,8 +1,8 @@
 import dotenv from "dotenv"
 import express from "express"
 import cors from "cors"
-import connectDB from "./src/db/index.js"
-import todoRoutes from "./src/routes/index.js"
+import connectDB from "./db/index.js"
+import todoRoutes from "./routes/index.js"
 
 dotenv.config()
 const app = express()
