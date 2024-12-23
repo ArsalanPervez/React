@@ -8,15 +8,17 @@ dotenv.config()
 const app = express()
 const port = 3000
 
-app.use(cors( {origin: "https://react-tmp1.vercel.app/" }))
+app.use(cors())
 app.use(express.json());
-
-//routes
-app.use('/api/v1' , todoRoutes)
 
 app.get('/', (req , res)=> {
   res.send("<h1>Hello World</h1>")
 })
+
+//routes
+app.use('/api/v1' , todoRoutes)
+
+
 
 
 connectDB()
