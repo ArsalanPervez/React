@@ -21,8 +21,8 @@ app.get('/', (req , res)=> {
 
 connectDB()
   .then(() => {
-    app.listen(process.env.PORT, () => {
-      console.log(`Server is running at port : ${process.env.PORT}`);
+    app.listen(8000, () => {
+      console.log(`Server is running at port : 8000`);
     });
   })
   .catch((err) => {
