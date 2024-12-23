@@ -8,7 +8,7 @@ dotenv.config()
 const app = express()
 const port = 3000
 
-app.use(cors())
+app.use(cors( {origin: "https://react-tmp1.vercel.app/" }))
 app.use(express.json());
 
 //routes
