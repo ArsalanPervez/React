@@ -8,7 +8,7 @@ function App() {
 
   useEffect(()=>{
     async function getData(){
-      const response = await axios('http://localhost:3000/api/v1/todo-list')
+      const response = await axios('https://react-tmp1.vercel.app/api/v1/todo-list')
       setTask(response.data.todos)
     }
     getData()
@@ -25,14 +25,14 @@ function App() {
 
     if (editUserIndex !== null) {
       const updatedUsers = [...task];
-      const response = await axios.put(`http://localhost:3000/api/v1/todo-edit/${editUserIndex}` , obj)
+      const response = await axios.put(`https://react-tmp1.vercel.app/api/v1/todo-edit/${editUserIndex}` , obj)
       let result = task.findIndex((item)=> item._id == editUserIndex)
       updatedUsers[result].taskName = response?.data?.todo?.taskName;
       updatedUsers[result].updatedAt = response?.data?.todo?.updatedAt;
       setTask(updatedUsers);
       setEditTaskIndex(null); 
     } else {
-      const response = await axios.post('http://localhost:3000/api/v1/add-todo' , obj)
+      const response = await axios.post('https://react-tmp1.vercel.app/api/v1/add-todo' , obj)
       setTask([...task, response.data.todo]);
     }
     inputUser.current.value = "";
@@ -46,7 +46,7 @@ function App() {
 
   const deleteTask = async (id) => {
     const filteredUsers = [...task];
-    const response = await axios.delete(`http://localhost:3000/api/v1/todo-delete/${id}`)
+    const response = await axios.delete(`https://react-tmp1.vercel.app/api/v1/todo-delete/${id}`)
     let result = task.findIndex((item)=> item._id == id)
     filteredUsers.splice(result, 1); 
     setTask(filteredUsers);
