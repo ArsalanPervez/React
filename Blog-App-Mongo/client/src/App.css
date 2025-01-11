@@ -1,0 +1,72 @@
+.text-cust {
+  font-family: Inter !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 28px !important;
+  text-align: left !important;
+  color: #6C757D !important;
+}
+
+.text-publish {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+  color: #ffff;
+}
+
+.custname {
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 29.05px;
+  text-align: left;
+
+}
+
+.custom-pass {
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 29.05px;
+  text-align: left;
+
+}
+.btn-cust{
+  font-family: Inter !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 28px !important;
+  text-align: left !important;
+
+}
+.custom-txt h2{
+  color: #7749F8;
+font-family: Inter;
+font-size: 40px;
+font-weight: 700;
+line-height: 48.41px;
+letter-spacing: -0.02em;
+text-align: right;
+
+}
+.custom-txt p{
+  font-family: Inter;
+font-size: 20px;
+font-weight: 600;
+line-height: 24.2px;
+text-align: right;
+color: #152536;
+}
+
+@media only screen and (max-width: 476px) {
+  .on-response{
+    padding-inline: 30px !important;
+  }
+  
+  .on-response inp{
+    max-width: 400px !important;
+  }
+
+}
