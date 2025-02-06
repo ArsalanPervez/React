@@ -19,7 +19,7 @@ function Login() {
         email,
         password
       }
-      const response = await axios.post('http://localhost:3000/api/v1/login-user', userData);
+      const response = await axios.post('https://blog-app-mongo.vercel.app/api/v1/login-user', userData);
       if(response.status == 200){
         const existingUserData = localStorage.getItem('userData');
         if (existingUserData) {

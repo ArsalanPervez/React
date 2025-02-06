@@ -9,7 +9,7 @@ function Header({userData, onLogout }) {
     const navigate = useNavigate();
     const handleLogout = async () => {
         try {
-            const response = await axios.post('http://localhost:3000/api/v1/logout');
+            const response = await axios.post('https://blog-app-mongo.vercel.app/api/v1/logout');
             const userData = localStorage.getItem('userData');
             if (userData) {
                 localStorage.removeItem("userData")

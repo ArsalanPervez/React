@@ -23,7 +23,7 @@ function Singleblog() {
 
     const getSingleBlog = async () => {
         try {
-            const response = await axios.get(`http://localhost:3000/api/v1/single-blog/${blogId}`);
+            const response = await axios.get(`https://blog-app-mongo.vercel.app/api/v1/single-blog/${blogId}`);
             setBlogData(response.data.blogs);
         } catch (error) {
             console.error("Error fetching blog:", error);

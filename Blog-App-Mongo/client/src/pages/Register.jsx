@@ -36,7 +36,7 @@ const Register = () => {
           };
 
 
-          const response = await axios.post('http://localhost:3000/api/v1/add-user', userData);
+          const response = await axios.post('https://blog-app-mongo.vercel.app/api/v1/add-user', userData);
 
           if(response.status == 200){
               // Success Alert

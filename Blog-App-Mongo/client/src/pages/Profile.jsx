@@ -35,7 +35,7 @@ function Profile() {
       email: user?.email?.trim(),
       password: newPassword.current.value.trim()
     };
-     const response = await axios.put(`http://localhost:3000/api/v1/user-edit/${user?.user_id}`, userData);
+     const response = await axios.put(`https://blog-app-mongo.vercel.app/api/v1/user-edit/${user?.user_id}`, userData);
      const existingUserData = localStorage.getItem('userData');
      if (existingUserData) {
         const parsedData = JSON.parse(existingUserData);

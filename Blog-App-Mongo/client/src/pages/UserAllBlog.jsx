@@ -26,7 +26,7 @@ function Singleblog() {
             const userData = JSON.parse(localStorage.getItem('userData'));
             
             if(userData){
-                const response = await axios.get(`http://localhost:3000/api/v1/user-blog-list/${userData.user_id}`);
+                const response = await axios.get(`https://blog-app-mongo.vercel.app/api/v1/user-blog-list/${userData.user_id}`);
                 const sortedBlogs = response.data.blogs.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
                 setBlogData(sortedBlogs);
             }

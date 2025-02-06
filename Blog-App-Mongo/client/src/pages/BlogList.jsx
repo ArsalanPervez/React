@@ -15,7 +15,7 @@ function Allblog() {
             if (userData) {
                 setUser(userData)
             }
-            const response = await axios.get(`http://localhost:3000/api/v1/all-blogs`);
+            const response = await axios.get(`https://blog-app-mongo.vercel.app/api/v1/all-blogs`);
             const sortedBlogs = response.data.blogs.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
             setBlogs(sortedBlogs);
             setLoading(false);

@@ -58,7 +58,7 @@ function Dashboard() {
       };
   
       try {
-          const response = await axios.post('http://localhost:3000/api/v1/add-blog', blogData, {
+          const response = await axios.post('https://blog-app-mongo.vercel.app/api/v1/add-blog', blogData, {
               headers: {
                   Authorization: `Bearer ${token}`, // Sending the token in the Authorization header
                   'Content-Type': 'application/json'
@@ -95,7 +95,7 @@ function Dashboard() {
           if (!userData || !userData.user_id) {
               throw new Error("User ID is missing in localStorage data");
           }
-          const response = await axios.get(`http://localhost:3000/api/v1/user-blog-list/${userData.user_id}`);
+          const response = await axios.get(`https://blog-app-mongo.vercel.app/api/v1/user-blog-list/${userData.user_id}`);
           const sortedBlogs = response.data.blogs.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
           setBlogs(sortedBlogs);
           setLoading(false);
@@ -134,7 +134,7 @@ function Dashboard() {
           author_image: ""
         };
         
-        const response = await axios.put(`http://localhost:3000/api/v1/blog-edit/${singleBlogData._id}`, blogData);
+        const response = await axios.put(`https://blog-app-mongo.vercel.app/api/v1/blog-edit/${singleBlogData._id}`, blogData);
 
           setOpenModal(false);
           Swal.fire({
@@ -162,7 +162,7 @@ function Dashboard() {
           reverseButtons: true,
         }).then(async (result)=> {
             if (result.isConfirmed) {
-              const response = await axios.delete(`http://localhost:3000/api/v1/blog-delete/${blogId}`);
+              const response = await axios.delete(`https://blog-app-mongo.vercel.app/api/v1/blog-delete/${blogId}`);
               fetchBlogs();
               Swal.fire("Deleted!", "Your blog has been deleted.", "success");
           }
@@ -185,7 +185,7 @@ function Dashboard() {
         if (!token) {
             throw new Error("Token is missing");
         }
-        const response = await axios.post(`http://localhost:3000/api/v1//like`, {blogId}, {
+        const response = await axios.post(`https://blog-app-mongo.vercel.app/api/v1//like`, {blogId}, {
           headers: {
               Authorization: `Bearer ${token}`, // Sending the token in the Authorization header
               'Content-Type': 'application/json'
@@ -208,7 +208,7 @@ function Dashboard() {
         if (!token) {
             throw new Error("Token is missing");
         }
-        const response = await axios.post(`http://localhost:3000/api/v1/comment`, {blogId, text: commentText.current[blogId]?.value.trim()}, {
+        const response = await axios.post(`https://blog-app-mongo.vercel.app/api/v1/comment`, {blogId, text: commentText.current[blogId]?.value.trim()}, {
           headers: {
               Authorization: `Bearer ${token}`, // Sending the token in the Authorization header
               'Content-Type': 'application/json'
